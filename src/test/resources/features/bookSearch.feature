@@ -1,4 +1,4 @@
-Feature: Books search
+Feature: Book search
 
   Scenario Outline: Search for book
     Given User goes to the OpenLibrary page "https://openlibrary.org/"
