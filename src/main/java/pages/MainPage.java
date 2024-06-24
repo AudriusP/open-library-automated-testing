@@ -15,6 +15,8 @@ public class MainPage {
     WebDriver driver;
     @FindBy(css = "div.language-component")
     private WebElement languageButton;
+    @FindBy(css = "div.language-dropdown-component")
+    private WebElement languageDropdown;
     @FindBy(css = "div.search-facet select")
     private WebElement searchTypeDropDown;
     @FindBy(css = "form.search-bar-input input[type='text']")
@@ -40,6 +42,6 @@ public class MainPage {
     }
 
     private void waitForLanguagesDropdownToAppear() {
-        new WebDriverWait(this.driver, Duration.ofSeconds(5)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.language-dropdown-component")));
+        new WebDriverWait(this.driver, Duration.ofSeconds(1)).until(ExpectedConditions.visibilityOf(languageDropdown));
     }
 }

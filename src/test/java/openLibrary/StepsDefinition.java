@@ -25,7 +25,6 @@ public class StepsDefinition {
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "chromedriver_win32/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -56,15 +55,15 @@ public class StepsDefinition {
         mainPage.searchBookByTitle(bookTitle);
     }
 
-    @And("User chooses book published in {string}")
-    public void userChoosesBookPublishedIn(String yearsPublished) {
+    @And("User chooses book published in {int}")
+    public void userChoosesBookPublishedIn(int yearsPublished) {
         searchBooksPage.selectBookByYearsPublished(yearsPublished);
 
     }
 
-    @And("Get author from API for book {string}")
-    public void getAuthorFromAPIForBook(String bookTitle) {
-        bookAuthor = apiHelper.getBookAuthorByBookTitle(bookTitle);
+    @And("Get author from API for book {string} published in {int}")
+    public void getAuthorFromAPIForBook(String bookTitle, int yearsPublished) {
+        bookAuthor = apiHelper.getBookAuthorByBookTitle(bookTitle, yearsPublished);
     }
 
     @Then("Author from API matches author on book page")

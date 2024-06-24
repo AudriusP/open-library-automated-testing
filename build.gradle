@@ -1,5 +1,12 @@
 plugins {
     id 'java'
+    id 'com.github.erdi.webdriver-binaries' version '3.2'
+}
+
+webdriverBinaries {
+    chromedriver {
+        versionRegexp = '.*'
+    }
 }
 
 group 'open-library-automated-testing'
